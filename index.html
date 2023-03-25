@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fill the coding</title>
+<style>
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
+.main{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+form{
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  border: 1px solid rgba(0,0,0,0.08);;
+}
+/* Full-width input fields */
+input[type=text],input[type=email],input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 25px 0;
+  display: inline-block;
+  border: none;
+  font-size: 1.05em;
+  background: rgba(0,0,0,0.05);
+}
+
+input[type=text]:focus,input[type=email]:focus,input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for all buttons */
+input[type=submit] {
+  width: 100%;
+  background-color: #CB4335;
+  color: #ffffff;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 1.1em;
+  opacity: 1;
+}
+
+input[type=submit]:hover {
+  opacity:0.9;
+}
+
+/* Add padding to container elements */
+.container {
+  padding: 16px;
+}
+
+.container p{
+    margin-top: 10px;
+}
+
+.progress_bar {
+  border: 2px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 2px solid #000000;
+  width: 40px;
+  height: 40px;
+  -webkit-animation: spin 0.4s linear infinite; /* Safari */
+  animation: spin 0.4s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* hide any view */
+.hide_view{
+    display: none !important;
+}
+
+
+@media screen and (max-width: 300px) {
+  .cancelbtn, .signupbtn {
+     width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .main{
+    justify-content: flex-start;
+  }
+
+  form{
+    width: 100%;
+    border: none;
+  }
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="main">
+
+<form method="POST" id="my-form" action="https://script.google.com/macros/s/AKfycbzFQtGy6DV6VscyhXpE7NtqWAvUyC-hJpyz57-lusSNc3icooDb1XXZHZKJIkX6yohg/exec">
+  <div class="container">
+    <h1>Fill Coding</h1>
+    <p>Please fill the coding.</p></br>
+    <hr>
+
+    <label><b>897845</b></label>
+    <input type="text" placeholder="Enter Answer" name="897845" required autocomplete="off">
+    
+    <label><b>254589</b></label>
+    <input type="text" placeholder="Enter Answer" name="254589" required autocomplete="off">
+    
+    <label><b>789123</b></label>
+    <input type="text" placeholder="Enter Answer" name="789123" required autocomplete="off">
+    
+     <label><b>321687</b></label>
+    <input type="text" placeholder="Enter Answer" name="321687" required autocomplete="off">
+    
+    <label><b>284295</b></label>
+    <input type="text" placeholder="Enter Answer" name="284295" required autocomplete="off">
+    
+    <label><b>654362</b></label>
+    <input type="text" placeholder="Enter Answer" name="654362" required autocomplete="off">
+
+    <input type="submit" value="Submit" id="action_btn">
+  </div>
+ </form>
+
+ <div class="progress_bar hide_view"></div>
+
+</div>
+
+<script>
+let idExist = false;
+let tempEmail = "";
+const progress_bar = document.querySelector('.progress_bar');
+const action_btn = document.querySelector('#action_btn');
+
+window.addEventListener("load", function() {
+  const form = document.getElementById('my-form');
+  form.addEventListener("submit", function(e) {
+   e.preventDefault();
+   progress_bar.classList.remove("hide_view");
+   action_btn.classList.add("hide_view");
+   const data = new FormData(form);
+   const action = e.target.action;
+   fetch(action, {
+     method: 'POST',
+     body: data,
+   })
+   .then(() => {
+     progress_bar.classList.add("hide_view");
+     action_btn.classList.remove("hide_view");
+     alert('Form Submitted!')
+   })
+  });
+});
+      
+</script>
+
+</body>
+</html>
